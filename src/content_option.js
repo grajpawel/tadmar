@@ -154,7 +154,7 @@ const dataportfolio = [{
 const contactConfig = {
     YOUR_EMAIL: "grajpawel@gmail.com",
     YOUR_FONE: "(555)123-4567",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ",
+    description: "Skontaktuj się z nami, aby uzyskać więcej informacji o naszych usługach budowlanych i ziemnych. Jesteśmy dostępni telefonicznie lub mailowo.",
     // creat an emailjs.com account 
     // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
     YOUR_SERVICE_ID: "service_hytq0fb",
@@ -162,11 +162,9 @@ const contactConfig = {
     YOUR_PUBLIC_KEY: "l-Uv6gh2J1y0_ZFbO"
 };
 
-const socialprofils = {
-    github: "https://github.com",
-    facebook: "https://facebook.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+const socialprofiles = {
+    facebook: "https://www.facebook.com/p/Firma-transportowa-Tadmar-100079790395615/",
+    panoramafirm: "https://panoramafirm.pl/pomorskie,gda%C5%84sk,tr%C4%85bki_wielkie,le%C5%9Bna,13/tadmar_marek_blawat-agekfx_pie.html"
 };
 export {
     meta,
@@ -177,6 +175,6 @@ export {
     services,
     introdata,
     contactConfig,
-    socialprofils,
+    socialprofiles,
     logotext,
 };
