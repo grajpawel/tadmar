@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import * as emailjs from "emailjs-com";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
@@ -7,61 +7,45 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "../../content_option";
 
 export const ContactUs = () => {
-  const [formData, setFormdata] = useState({
-    email: "",
-    name: "",
-    message: "",
+  const form = useRef();
+  const [formState, setFormState] = useState({
     loading: false,
     show: false,
     alertmessage: "",
     variant: "",
   });
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    setFormdata({ loading: true });
-
-    const templateParams = {
-      from_name: formData.email,
-      user_name: formData.name,
-      to_name: contactConfig.YOUR_EMAIL,
-      message: formData.message,
-    };
+    setFormState({ ...formState, loading: true });
 
     emailjs
-      .send(
+      .sendForm(
         contactConfig.YOUR_SERVICE_ID,
         contactConfig.YOUR_TEMPLATE_ID,
-        templateParams,
-        contactConfig.YOUR_USER_ID
+        form.current,
+        { publicKey: contactConfig.YOUR_PUBLIC_KEY }
       )
       .then(
-        (result) => {
-          console.log(result.text);
-          setFormdata({
+        () => {
+          setFormState({
             loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
+            alertmessage: "SUCCESS! Thank you for your message",
             variant: "success",
             show: true,
           });
+          form.current.reset();
         },
         (error) => {
-          console.log(error.text);
-          setFormdata({
-            alertmessage: `Faild to send!,${error.text}`,
+          setFormState({
+            loading: false,
+            alertmessage: `Failed to send! ${error.text}`,
             variant: "danger",
             show: true,
           });
           document.getElementsByClassName("co_alert")[0].scrollIntoView();
         }
       );
-  };
-
-  const handleChange = (e) => {
-    setFormdata({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
   };
 
   return (
@@ -74,22 +58,19 @@ export const ContactUs = () => {
         </Helmet>
         <Row className="mb-5 mt-3 pt-md-3">
           <Col lg="8">
-            <h1 className="display-4 mb-4">Contact Me</h1>
+            <h1 className="display-4 mb-4">Kontakt</h1>
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
         <Row className="sec_sp">
           <Col lg="12">
             <Alert
-              //show={formData.show}
-              variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? "d-block" : "d-none"
-              }`}
-              onClose={() => setFormdata({ show: false })}
+              variant={formState.variant}
+              className={`rounded-0 co_alert ${formState.show ? "d-block" : "d-none"}`}
+              onClose={() => setFormState({ ...formState, show: false })}
               dismissible
             >
-              <p className="my-0">{formData.alertmessage}</p>
+              <p className="my-0">{formState.alertmessage}</p>
             </Alert>
           </Col>
           <Col lg="5" className="mb-5">
@@ -112,30 +93,26 @@ export const ContactUs = () => {
             <p>{contactConfig.description}</p>
           </Col>
           <Col lg="7" className="d-flex align-items-center">
-            <form onSubmit={handleSubmit} className="contact__form w-100">
+            <form ref={form} onSubmit={sendEmail} className="contact__form w-100">
               <Row>
                 <Col lg="6" className="form-group">
                   <input
                     className="form-control"
                     id="name"
-                    name="name"
+                    name="user_name"
                     placeholder="Name"
-                    value={formData.name || ""}
                     type="text"
                     required
-                    onChange={handleChange}
                   />
                 </Col>
                 <Col lg="6" className="form-group">
                   <input
                     className="form-control rounded-0"
                     id="email"
-                    name="email"
+                    name="user_email"
                     placeholder="Email"
                     type="email"
-                    value={formData.email || ""}
                     required
-                    onChange={handleChange}
                   />
                 </Col>
               </Row>
@@ -145,15 +122,13 @@ export const ContactUs = () => {
                 name="message"
                 placeholder="Message"
                 rows="5"
-                value={formData.message}
-                onChange={handleChange}
                 required
               ></textarea>
               <br />
               <Row>
                 <Col lg="12" className="form-group">
                   <button className="btn ac_btn" type="submit">
-                    {formData.loading ? "Sending..." : "Send"}
+                    {formState.loading ? "Sending..." : "Send"}
                   </button>
                 </Col>
               </Row>
@@ -161,7 +136,7 @@ export const ContactUs = () => {
           </Col>
         </Row>
       </Container>
-      <div className={formData.loading ? "loading-bar" : "d-none"}></div>
+      <div className={formState.loading ? "loading-bar" : "d-none"}></div>
     </HelmetProvider>
   );
 };

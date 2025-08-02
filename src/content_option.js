@@ -1,76 +1,92 @@
-const logotext = "JOHN";
+const logotext = "TADMAR";
 const meta = {
-    title: "John Doe",
-    description: "I’m John Doe data scientist _ Full stack devloper,currently working in Berlin",
+    title: "Tadmar – Prace ziemne i usługi budowlane | Pruszcz Gdański i okolice",
+    description: "Tadmar oferuje profesjonalne prace ziemne i budowlane w Pruszczu Gdańskim i okolicach. Koparko-ładowarka, minikoparka, wykopy, drenaże, montaż zbiorników, przygotowanie pod kostkę i dowóz materiałów sypkich." 
 };
 
 const introdata = {
-    title: "I’m John Doe",
+    title: "Tadmar Usługi Transportowo-Budowlane",
     animated: {
-        first: "I love coding",
-        second: "I code cool websites",
-        third: "I develop mobile apps",
+        first: "Prace ziemne i wykopy",
+        second: "Przygotowanie działek i fundamentów",
+        third: "Drenaże i odwodnienia",
+        fourth: "Układanie kostki brukowej i obrzeży",
+        fifth: "Montaż zbiorników i szamb",
+        sixth: "Dowóz piasku, ziemi i gruzu",
+        seventh: "Zagęszczanie i wymiana gruntu",
+        eighth: "Przygotowanie pod kostkę i nawierzchnie",
+        ninth: "Układanie płyt drogowych i płyt Jumbo",
     },
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
-    your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
+    description: "Profesjonalne usługi budowlane i ziemne w Pruszczu Gdańskim i okolicach. Koparko-ładowarka, minikoparka, wykopy, drenaże, przygotowanie pod kostkę i wiele więcej.",
+    your_img_url: "/assets/images/koparka.jpg",
 };
+
 
 const dataabout = {
-    title: "abit about my self",
-    aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.",
+  title: "Kim jesteśmy",
+  aboutme:
+    "Tadmar to firma specjalizująca się w usługach transportowo-budowlanych na terenie Pruszcza Gdańskiego i okolic. Oferujemy profesjonalne prace ziemne, wykopy, przygotowanie działek oraz dowóz materiałów sypkich. Działamy solidnie, terminowo i z wykorzystaniem sprawdzonego sprzętu.",
 };
-const worktimeline = [{
-        jobtitle: "Designer of week",
-        where: "YAdfi",
-        date: "2020",
-    },
-    {
-        jobtitle: "Designer of week",
-        where: "Jamalya",
-        date: "2019",
-    },
-    {
-        jobtitle: "Designer of week",
-        where: "ALquds",
-        date: "2019",
-    },
+
+const worktimeline = [
+  {
+    jobtitle: "Przygotowanie terenu pod budowę",
+    where: "Pruszcz Gdański",
+    date: "2024",
+  },
+  {
+    jobtitle: "Montaż zbiornika i drenaż",
+    where: "Rotmanka",
+    date: "2023",
+  },
+  {
+    jobtitle: "Układanie kostki brukowej",
+    where: "Straszyn",
+    date: "2023",
+  },
 ];
 
-const skills = [{
-        name: "Python",
-        value: 90,
-    },
-    {
-        name: "Djano",
-        value: 85,
-    },
-    {
-        name: "Javascript",
-        value: 80,
-    },
-    {
-        name: "React",
-        value: 60,
-    },
-    {
-        name: "Jquery",
-        value: 85,
-    },
+const skills = [
+  {
+    name: "Prace ziemne i wykopy",
+    value: 95,
+  },
+  {
+    name: "Układanie kostki brukowej",
+    value: 95,
+  },
+  {
+    name: "Drenaże i odwodnienia",
+    value: 95,
+  },
+  {
+    name: "Dowóz materiałów sypkich",
+    value: 95,
+  },
+  {
+    name: "Montaż zbiorników i szamb",
+    value: 95,
+  },
 ];
 
-const services = [{
-        title: "UI & UX Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-    },
-    {
-        title: "Mobile Apps",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-    },
-    {
-        title: "Wordpress Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-    },
+const services = [
+  {
+    title: "Prace ziemne",
+    description:
+      "Wykopy pod fundamenty, ogrodzenia, przyłącza oraz przygotowanie działek i nawierzchni.",
+  },
+  {
+    title: "Układanie kostki brukowej",
+    description:
+      "Profesjonalne przygotowanie podłoża oraz montaż kostki brukowej, obrzeży i płyt drogowych.",
+  },
+  {
+    title: "Transport materiałów",
+    description:
+      "Dowóz piasku, ziemi, gruzu i suchego betonu bezpośrednio na teren budowy.",
+  },
 ];
+
 
 const dataportfolio = [{
         img: "https://picsum.photos/400/?grayscale",
@@ -136,14 +152,14 @@ const dataportfolio = [{
 ];
 
 const contactConfig = {
-    YOUR_EMAIL: "name@domain.com",
+    YOUR_EMAIL: "grajpawel@gmail.com",
     YOUR_FONE: "(555)123-4567",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ",
     // creat an emailjs.com account 
     // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
-    YOUR_SERVICE_ID: "service_id",
-    YOUR_TEMPLATE_ID: "template_id",
-    YOUR_USER_ID: "user_id",
+    YOUR_SERVICE_ID: "service_hytq0fb",
+    YOUR_TEMPLATE_ID: "template_kvkjblo",
+    YOUR_PUBLIC_KEY: "l-Uv6gh2J1y0_ZFbO"
 };
 
 const socialprofils = {
