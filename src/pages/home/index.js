@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
@@ -6,6 +6,27 @@ import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const carouselImages = [
+    process.env.PUBLIC_URL + "/assets/images/koparka.jpg",
+    process.env.PUBLIC_URL + "/assets/images/row.jpg",
+    process.env.PUBLIC_URL + "/assets/images/1.jpg",
+    process.env.PUBLIC_URL + "/assets/images/2.jpg",
+    process.env.PUBLIC_URL + "/assets/images/3.jpg",
+    process.env.PUBLIC_URL + "/assets/images/4.jpg",
+    process.env.PUBLIC_URL + "/assets/images/5.jpg",
+    process.env.PUBLIC_URL + "/assets/images/6.jpg",
+    process.env.PUBLIC_URL + "/assets/images/7.jpg",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 4000); // change every 4s
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
   return (
     <HelmetProvider>
       <section id="home" className="home">
@@ -15,11 +36,8 @@ export const Home = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="intro_sec d-block d-lg-flex align-items-center ">
-          <div
-            className="h_bg-image order-1 order-lg-2 h-100 "
-            style={{ backgroundImage: `url(${process.env.PUBLIC_URL + introdata.your_img_url})` }}
-          ></div>
-          <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
+          {/* Text first on both mobile and desktop */}
+          <div className="text order-1 order-lg-1 h-100 d-lg-flex justify-content-center">
             <div className="align-self-center ">
               <div className="intro mx-auto">
                 <h2 className="mb-1x">{introdata.title}</h2>
@@ -66,6 +84,19 @@ export const Home = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Carousel second on both mobile and desktop */}
+          <div className="carousel-container order-2 order-lg-2 h-100">
+            {carouselImages.map((img, i) => (
+              <div
+                key={i}
+                className={`carousel-slide ${
+                  i === currentIndex ? "active" : ""
+                }`}
+                style={{ backgroundImage: `url(${img})` }}
+              ></div>
+            ))}
           </div>
         </div>
       </section>
