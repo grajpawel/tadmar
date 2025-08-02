@@ -16,12 +16,12 @@ export const About = () => {
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
-          <title> About | {meta.title}</title>
+          <title> O firmie | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
         <Row className="mb-5 mt-3 pt-md-3">
           <Col lg="8">
-            <h1 className="display-4 mb-4">About me</h1>
+            <h1 className="display-4 mb-4">O firmie Tadmar</h1>
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
@@ -35,9 +35,9 @@ export const About = () => {
             </div>
           </Col>
         </Row>
-        <Row className=" sec_sp">
+        {/* <Row className=" sec_sp">
           <Col lg="5">
-            <h3 className="color_sec py-4">Work Timline</h3>
+            <h3 className="color_sec py-4">Nasze realizacje</h3>
           </Col>
           <Col lg="7">
             <table className="table caption-top">
@@ -54,10 +54,10 @@ export const About = () => {
               </tbody>
             </table>
           </Col>
-        </Row>
+        </Row> */}
         <Row className="sec_sp">
           <Col lg="5">
-            <h3 className="color_sec py-4">Skills</h3>
+            <h3 className="color_sec py-4">Nasze atuty</h3>
           </Col>
           <Col lg="7">
             {skills.map((data, i) => {
@@ -71,7 +71,7 @@ export const About = () => {
                         width: `${data.value}%`,
                       }}
                     >
-                      <div className="progress-value">{data.value}%</div>
+                      {/* <div className="progress-value">{data.value}%</div> */}
                     </div>
                   </div>
                 </div>
@@ -80,8 +80,8 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lang="5">
-            <h3 className="color_sec py-4">services</h3>
+          <Col lg="5">
+            <h3 className="color_sec py-4">Nasze usługi</h3>
           </Col>
           <Col lg="7">
             {services.map((data, i) => {
