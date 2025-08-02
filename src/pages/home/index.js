@@ -16,6 +16,7 @@ export const Home = () => {
     process.env.PUBLIC_URL + "/assets/images/5.jpg",
     process.env.PUBLIC_URL + "/assets/images/6.jpg",
     process.env.PUBLIC_URL + "/assets/images/7.jpg",
+    process.env.PUBLIC_URL + "/assets/images/8.jpg"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
